@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>search student info</title>
+    <style>
+        body {
+            margin: 0;
+        }
+        #head {
+            height: 20vh; 
+            background-color: blue;
+            padding-top: 5%;
+        }
+        #he1{
+            color: aliceblue;
+            margin: 0;
+            display: flex;
+    
+            align-items: center;
+            /* height: 50%;*/
+            padding-left: 40%;
+            padding-bottom: 0%;
+        }
+        #he2{
+            color: aliceblue;
+            align-items: center;
+            padding-left: 43%;
+            margin: 0;
+        }
+        #con{
+              text-align: center;
+              font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+              margin: 10%;
+        }
+        #ees{
+            color: brown;
+            text-align: center;
+            margin-top: 3%;
+        }
+        input,label{
+            text-align: center;
+            font-size: larger;
+            font-weight: bold;
+            font-family: Arial, Helvetica, sans-serif;
+            display: flex;
+            flex-direction: row;
+            text-align: center;
+            height: 30%;
+            align-items: center;
+            margin-left: 30%;
+            padding: 10px;
+            border-radius: 10px;
+            border: 50%;
+            empty-cells: show;
+        }
+        #bt{
+            text-align: center;
+            background-color: rgb(174, 252, 252);
+            align-items: center;
+        }
+        table{
+            font-size:x-large;
+            margin-left: 30%;
+            align-content: center;
+            text-align: center;
+            align-items: center;
+            border: solid 2px;
+            height: 15%;
+            width: 40%;
+            
+        }
+        #warn{
+            text-align: center;
+            font-family: 'Impact', 'Arial Black', sans-serif; /* Bold, striking font */
+            font-size: 24px; /* Increase font size for emphasis */
+            color: red; /* Danger is often associated with red */
+            text-transform: uppercase; /* Make the text stand out more */
+            letter-spacing: 2px; /* Add spacing for a dramatic effect */
+            background-color: yellow; /* Optional: Highlight with yellow background */
+            border: 2px solid red; /* Optional: Add a red border for more urgency */
+            padding: 10px; /* Add spacing inside the box */
+        }
+        #home{
+            margin-left: 30%;
+            font-size: large;
+            align-items: end;
+            color: bisque;}
+
+        
+    </style>
+</head>
+<body>
+    <div id="head">
+        <h1 id="he1">MSK UNIVERSITY</h1>
+        <h2 id="he2"> AUTONOMOUS</h2>
+        <br>
+        <br>
+        <button id="home" onclick="window.location.href='/home.html'" style="background-color: rgb(8, 8, 22);">Home</button>
+        <button id="home" onclick="window.location.href='#' " style="background-color: rgb(8, 8, 22);">About Us</button>
+        <br>
+    </div>
+    <h1 id="ees">Search Student Information</h1>
+    <div>
+       <form action="" method="post">
+             {% csrf_token %}
+        <label for="rollnumber">ENTER ROLL NUMBER:</label>
+        <input type="number" name="roll_number" placeholder="Enter Rollnumber" required>
+        <br>
+        <input type="submit" value="Search" style="background-color: rgb(58, 58, 105);">
+       </form>
+    </div>
+    <div id="bt">
+        <h1 id="warn">{{message}}</h1>
+        <h1> Student Details</h1>
+        <table>
+          <tr>
+            <th>Rollnumber</th>
+            <th>fullname</th>
+            <th>Date Of Birth</th>
+            <th>Email Id</th>
+          </tr>
+          <tr>
+            <td>{{student.roll_number}}</td>
+            <td> {{student.fullname}}</td>
+            <td> {{student.date_of_birth}}</td>
+            <td>{{student.email}}</td>
+    
+          </tr>
+            
+        </table>
+
+       </div>
+    
+</body>
+</html>
